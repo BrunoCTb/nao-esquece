@@ -1,8 +1,19 @@
 import customtkinter as ctk
 
+from database import Database
+from repositories.repository import BillRepository
+from services.service import BillService
+
 ### App theme
 # ctk.set_appearance_mode("dark")  # pode ser "light" ou "system"
 # ctk.set_default_color_theme("blue")
+
+# init
+db = Database()
+bill_repo = BillRepository(db)
+bill_service = BillService(bill_repo)
+
+
 
 class MainApp(ctk.CTk):
     def __init__(self):
